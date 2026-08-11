@@ -1,0 +1,141 @@
+/* ============================================================
+   DigiHive — Landing Page Styles (produk oleh Ritiros Studio)
+   Dibangun di atas token & komponen css/styles.css (wajib dimuat lebih dulu).
+   File ini hanya berisi komponen khusus halaman DigiHive:
+   dashboard mockup, flow stepper, pricing table, invest card, dll.
+   ============================================================ */
+
+/* Badge row (pill fitur singkat di hero) */
+.badge-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:26px}
+.b-chip{display:inline-flex; align-items:center; gap:8px; font-size:.85rem; font-weight:600; color:var(--ink); background:var(--card); border:1px solid var(--line); border-radius:999px; padding:9px 16px 9px 12px}
+.b-chip svg{color:var(--accent); flex:none}
+
+/* Hero media sederhana (tanpa layer absolute seperti .hero-media) */
+.dh-hero-media{position:relative}
+
+/* ===== Dashboard mockup (rekreasi tampilan aplikasi, bukan screenshot asli) ===== */
+.dash-shell{display:grid; grid-template-columns:150px 1fr; min-height:300px; background:var(--card)}
+.dash-side{background:var(--paper-2); border-right:1px solid var(--line); padding:14px 10px; display:flex; flex-direction:column; gap:2px}
+.dash-side .side-brand{display:flex; align-items:center; gap:7px; padding:4px 8px 14px; font-family:var(--sans); font-weight:700; font-size:11.5px; color:var(--head)}
+.dash-side .side-dot{width:7px; height:7px; border-radius:50%; background:var(--grad); flex:none}
+.dash-side .side-group{font-family:var(--mono); font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); opacity:.75; margin:10px 8px 4px}
+.dash-side .side-link{font-family:var(--sans); font-size:11px; font-weight:500; padding:7px 9px; border-radius:7px; color:var(--muted); display:flex; align-items:center; gap:8px; justify-content:space-between}
+.dash-side .side-link.active{background:var(--accent-soft); color:var(--accent); font-weight:700}
+.dash-side .side-badge{background:var(--grad); color:#fff; font-size:8.5px; font-weight:700; border-radius:999px; padding:1px 6px; line-height:1.4}
+@media(max-width:640px){ .dash-shell{grid-template-columns:1fr} .dash-side{display:none} }
+
+.dash-main{padding:16px 18px; display:flex; flex-direction:column; gap:14px; min-width:0}
+.dash-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px}
+.dash-top h5{font-family:var(--sans); font-size:13.5px; font-weight:700; color:var(--head); margin:0}
+.dash-top .sub{display:block; font-size:10px; color:var(--muted); margin-top:2px}
+.dash-select{flex:none; font-family:var(--sans); font-size:10px; font-weight:500; border:1px solid var(--line); border-radius:8px; padding:6px 10px; color:var(--ink); background:var(--card); white-space:nowrap}
+
+.dash-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:9px}
+.dash-stat{border:1px solid var(--line); border-radius:10px; padding:9px 11px; background:var(--card); min-width:0}
+.dash-stat.warn{background:color-mix(in srgb, #F5A524 12%, var(--card)); border-color:color-mix(in srgb, #F5A524 30%, var(--line))}
+.dash-stat.danger{background:color-mix(in srgb, #F04438 10%, var(--card)); border-color:color-mix(in srgb, #F04438 26%, var(--line))}
+.dash-stat .lbl{display:block; font-family:var(--mono); font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.dash-stat .val{display:block; font-family:var(--serif); font-size:17px; font-weight:700; color:var(--head); margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.dash-stat .sub{display:block; font-size:8.5px; color:var(--muted); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+@media(max-width:640px){ .dash-stats{grid-template-columns:1fr 1fr} }
+
+.dash-areas{display:grid; grid-template-columns:repeat(3,1fr); gap:9px}
+.area-card{border:1px solid var(--line); border-radius:10px; padding:8px 11px; background:var(--paper-2); min-width:0}
+.area-card .lbl{display:block; font-family:var(--mono); font-size:7px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.area-card .val{display:block; font-family:var(--serif); font-weight:700; font-size:14px; color:var(--head); margin-top:3px}
+.area-card .sub{display:block; font-size:7.5px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+@media(max-width:640px){ .dash-areas{grid-template-columns:1fr} }
+
+.dash-alerts{display:grid; grid-template-columns:1fr 1fr; gap:9px}
+.alert-card{border:1px solid var(--line); border-radius:10px; padding:9px 11px; background:var(--card); min-width:0}
+.alert-head{display:flex; align-items:center; gap:6px; font-size:9px; font-weight:700; color:var(--head); margin-bottom:7px}
+.alert-head .dot{width:6px; height:6px; border-radius:50%; flex:none}
+.alert-head .dot.danger{background:#F04438}
+.alert-head .dot.warn{background:#F5A524}
+.alert-head .see{margin-left:auto; color:var(--accent); font-weight:600; font-size:8px; white-space:nowrap}
+.alert-row{display:flex; justify-content:space-between; gap:8px; font-size:9px; color:var(--ink)}
+.alert-row b{font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.alert-row span{flex:none; color:var(--muted)}
+@media(max-width:640px){ .dash-alerts{grid-template-columns:1fr} }
+
+/* Mini table mockup (Daftar Stok) */
+.mock-table{width:100%; border-collapse:collapse; font-size:9.5px}
+.mock-table th{text-align:left; padding:6px 7px; color:var(--muted); font-weight:600; border-bottom:1px solid var(--line); font-size:7.5px; text-transform:uppercase; letter-spacing:.03em}
+.mock-table td{padding:7px 7px; border-bottom:1px solid var(--line); color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:1px}
+.mock-table tr:last-child td{border-bottom:0}
+.mock-tag{display:inline-block; font-size:7.5px; font-weight:600; padding:2px 7px; border-radius:999px; background:var(--accent-soft); color:var(--accent); white-space:nowrap}
+.mock-tag.danger{background:color-mix(in srgb,#F04438 14%, transparent); color:#F04438}
+
+/* Empty state mockup (Procurement) */
+.mock-empty{display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:9px; padding:30px 16px; color:var(--muted); min-height:180px}
+.mock-empty .ic{width:36px; height:36px; border-radius:50%; background:var(--paper-2); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--muted)}
+.mock-empty b{color:var(--head); font-size:.82rem}
+.mock-empty span{font-size:.74rem; max-width:24ch; line-height:1.4}
+
+.dupe-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px}
+.shot-cap{margin-top:14px; font-size:.92rem; color:var(--muted); text-align:center; line-height:1.5}
+.shot-cap b{color:var(--head)}
+@media(max-width:760px){ .dupe-grid{grid-template-columns:1fr} }
+
+/* ===== Callout (kotak insight dengan ikon) ===== */
+.callout{display:flex; gap:14px; align-items:flex-start; background:var(--accent-soft); border:1px solid color-mix(in srgb, var(--accent) 22%, transparent); border-radius:var(--r-lg); padding:20px 24px; margin-top:40px}
+.callout .ic{flex:none; width:34px; height:34px; border-radius:10px; background:var(--grad); color:#fff; display:flex; align-items:center; justify-content:center}
+.callout p{font-size:.96rem; color:var(--ink); margin:0; line-height:1.55}
+.callout p b{color:var(--head)}
+
+/* ===== Pain list (varian .biglist dengan ikon peringatan) ===== */
+.biglist.warn .k{display:flex; align-items:center; justify-content:center; color:#F5A524}
+
+/* ===== Flow stepper vertikal ===== */
+.flow{list-style:none; margin:26px 0 0; padding:0; display:flex; flex-direction:column}
+.flow-item{position:relative; display:flex; gap:16px; padding-bottom:26px}
+.flow-item:last-child{padding-bottom:0}
+.flow-item::before{content:""; position:absolute; left:15px; top:34px; bottom:0; width:1px; background:var(--line)}
+.flow-item:last-child::before{display:none}
+.flow-num{flex:none; width:32px; height:32px; border-radius:50%; background:var(--grad); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:13px; font-weight:600; box-shadow:0 8px 18px -10px color-mix(in srgb, var(--accent) 60%, transparent); position:relative; z-index:1}
+.flow-body{padding-top:4px}
+.flow-body h4{font-family:var(--sans); font-size:1rem; font-weight:700; color:var(--head); margin:0 0 3px}
+.flow-body p{font-size:.9rem; color:var(--muted); margin:0}
+
+/* ===== Benefit checklist 3 kolom ===== */
+.check-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px 32px; margin-top:24px}
+.check-item{display:flex; gap:10px; align-items:flex-start; font-size:.95rem; color:var(--ink); line-height:1.45}
+.check-item svg{flex:none; margin-top:4px; color:var(--accent)}
+@media(max-width:700px){ .check-grid{grid-template-columns:1fr 1fr} }
+@media(max-width:480px){ .check-grid{grid-template-columns:1fr} }
+
+/* ===== Investasi: kartu harga utama ===== */
+.invest-card{position:relative; background:linear-gradient(var(--card),var(--card)) padding-box, var(--grad) border-box; border:2px solid transparent; border-radius:var(--r-xl); box-shadow:var(--shadow-glow); padding:40px; margin-top:44px}
+.invest-head{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap}
+.invest-head h3{font-size:1.4rem}
+.invest-prices{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:22px; padding-bottom:26px; border-bottom:1px solid var(--line)}
+.invest-price .amt{font-family:var(--serif); font-size:2.2rem; font-weight:700; color:var(--head); line-height:1.1}
+.invest-price .amt small{font-family:var(--mono); font-size:13px; color:var(--muted); font-weight:400}
+.invest-price .lbl{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-top:8px; display:block}
+.invest-includes{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:26px}
+.invest-includes h5{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); margin:0 0 13px}
+.invest-includes ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.invest-includes li{display:flex; gap:9px; font-size:.92rem; color:var(--ink); align-items:flex-start}
+.invest-includes li svg{flex:none; margin-top:3px; color:var(--accent)}
+.invest-card .btn{margin-top:28px}
+@media(max-width:700px){ .invest-card{padding:26px} .invest-prices,.invest-includes{grid-template-columns:1fr; gap:18px} }
+
+/* ===== Tabel harga per cabang ===== */
+.table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:var(--r-lg); margin-top:28px}
+.price-table{width:100%; border-collapse:collapse; font-size:.94rem; min-width:520px}
+.price-table th{background:var(--grad); color:#fff; text-align:left; padding:13px 18px; font-family:var(--sans); font-weight:600; font-size:.84rem}
+.price-table td{padding:13px 18px; border-bottom:1px solid var(--line); color:var(--ink)}
+.price-table td b{font-family:var(--sans); color:var(--accent-ink)}
+.price-table tr:last-child td{border-bottom:0}
+.price-table tr:hover td{background:var(--paper-2)}
+.table-note{font-family:var(--mono); font-size:11px; color:var(--muted); margin-top:14px; font-style:italic}
+
+/* ===== Add-on ===== */
+.addon{margin-top:28px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; background:var(--paper-2); border:1px solid var(--line); border-radius:var(--r-lg); padding:24px 28px}
+.addon .tag{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:6px}
+.addon h4{font-size:1.15rem; margin:0 0 4px}
+.addon .p{font-family:var(--serif); font-size:1.5rem; font-weight:700; color:var(--head); text-align:right}
+.addon .note{font-size:.83rem; color:var(--muted); margin-top:2px; text-align:right}
+
+/* ===== Utilitas kecil ===== */
+.center-head{max-width:60ch; margin:0 auto; text-align:center}
